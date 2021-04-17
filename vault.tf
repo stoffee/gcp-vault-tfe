@@ -46,6 +46,8 @@ tags = [
   }
 
   metadata_startup_script = <<SCRIPT
+    sudo timedatectl set-timezone US/Pacific
+    sudo apt update
     sudo apt-get install -y unzip libtool libltdl-dev
 
     curl -s -L -o ~/vault.zip ${var.vault_url}
