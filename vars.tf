@@ -12,6 +12,7 @@ variable "gcp_region" {
 }
 variable "prefix" {
   description = "The prefix for assets in the GCP Project."
+  default = "stoffee"
 }
 
 variable "bound_service_account" {
