@@ -1,3 +1,7 @@
+resource "google_service_account" "tfe_kms_service_account" {
+  account_id   = "${var.prefix}-tfekms"
+  display_name = "tfe KMS"
+}
 resource "google_compute_instance" "tfe" {
   name         = "${var.prefix}-tfe"
   machine_type     = var.tfe_cluster_machine_type
