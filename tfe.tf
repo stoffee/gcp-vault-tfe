@@ -13,6 +13,7 @@ tags = [
 
   boot_disk {
     initialize_params {
+      size = 100
       image = "ubuntu-os-cloud/ubuntu-minimal-1804-lts"
     }
   }
@@ -42,8 +43,9 @@ tags = [
     sudo timedatectl set-timezone US/Pacific
     sudo apt update
     sudo apt-get install -y unzip libtool libltdl-dev ntp vim zip jq git locate dos2unix screen less
-    sudo systemctl stop sendmail && sudo systemctl disable sendmail
+    #sudo systemctl stop sendmail && sudo systemctl disable sendmail
     #sudo apt -y reinstall postfix mailutils libsasl2-2 ca-certificates libsasl2-modules bsd-mailx
+
 SCRIPT
 
 }

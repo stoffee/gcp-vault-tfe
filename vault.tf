@@ -20,6 +20,7 @@ tags = [
 
   boot_disk {
     initialize_params {
+      size = 100
       image = "ubuntu-os-cloud/ubuntu-minimal-1804-lts"
     }
   }
