@@ -20,7 +20,7 @@ tags = [
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "ubuntu-os-cloud/ubuntu-minimal-1804-lts"
     }
   }
 

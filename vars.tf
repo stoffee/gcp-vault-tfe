@@ -8,6 +8,7 @@ variable "gcp_credentials" {
 
 variable "gcp_region" {
   description = "The region in which all GCP resources will be launched."
+  default = "us-west-1"
 }
 variable "prefix" {
   description = "The prefix for assets in the GCP Project."
@@ -23,6 +24,7 @@ variable "keyring_name" {
 
 variable "keyring_location" {
   description = "KeyRing Name."
+  default = "us-west1"
 }
 
 variable "vault_cluster_machine_type" {
@@ -37,6 +39,7 @@ variable "tfe_cluster_machine_type" {
 
 variable "gcloud_zone" {
   description = "Zone."
+  default = "us-west1-a"
 }
 
 variable "vault_url" {

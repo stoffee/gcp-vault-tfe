@@ -35,8 +35,9 @@ tags = [
   }
 
   metadata_startup_script = <<SCRIPT
-    sudo apt-get install -y unzip libtool libltdl-dev
-
+    sudo apt-get install -y unzip libtool libltdl-dev ntp vim zip jq git locate dos2unix screen bsd-mailx
+    sudo systemctl stop sendmail && sudo systemctl disable sendmail
+    sudo apt -y reinstall postfix mailutils libsasl2-2 ca-certificates libsasl2-modules
 SCRIPT
 
 }
