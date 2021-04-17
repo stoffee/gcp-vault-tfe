@@ -41,11 +41,3 @@ tags = [
 SCRIPT
 
 }
-
-output "project" {
-  value = google_compute_instance.tfe.project
-}
-
-output "tfe_server_instance_id" {
-  value = google_compute_instance.tfe.self_link
-}
