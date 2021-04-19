@@ -54,3 +54,7 @@ variable "crypto_key" {
 variable "network" {
   description = "network"
 }
+
+variable "gcp_iam_vault_service_account" {
+  description = "The service account to give to Vault to manage other service accounts."
+}

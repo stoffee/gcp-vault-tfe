@@ -82,6 +82,17 @@ tags = [
     /usr/bin/vault auth enable gcp >>/opt/vault/setup.log
     /usr/bin/vault write auth/gcp/role/my-iam-role type="iam"  policies="dev,prod"  bound_service_accounts="${var.bound_service_account}" >>/opt/vault/setup.log
     /usr/bin/vault write auth/gcp/role/my-gce-role type="gce"  policies="dev,prod" bound_projects="${var.gcp_project_id}" >>/opt/vault/setup.log
+    /usr/bin/vault enable gcp >>/opt/vault/setup.log
+    /usr/bin/vault vault write gcp/config credentials=${var.gcp_iam_vault_service_account} >>/opt/vault/setup.log
+    vault write gcp/roleset/my-token-roleset \
+    project="my-project" \
+    secret_type="access_token"  \
+    token_scopes="https://www.googleapis.com/auth/cloud-platform" \
+    bindings=-<<B0F
+      resource "//cloudresourcemanager.googleapis.com/projects/${var.gcp_project_id}" {
+        roles = ["roles/viewer"]
+      }
+    B0F
 SCRIPT
 
 }
