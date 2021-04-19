@@ -77,13 +77,13 @@ tags = [
     /usr/bin/vault operator init -recovery-shares=1 -recovery-threshold=1 >> /opt/vault/vault.unseal.info
 
     ROOT_TOKEN=`cat /opt/vault/vault.unseal.info |grep Root|awk '{print $4}'`
-    /usr/bin/vault login $ROOT_TOKEN >> /opt/vault/setup.log
-    /usr/bin/vault secrets enable -path=sercets kv2 >> /opt/vault/setup.log
-    /usr/bin/vault auth enable gcp >>/opt/vault/setup.log
-    /usr/bin/vault write auth/gcp/role/my-iam-role type="iam"  policies="dev,prod"  bound_service_accounts="${var.bound_service_account}" >>/opt/vault/setup.log
-    /usr/bin/vault write auth/gcp/role/my-gce-role type="gce"  policies="dev,prod" bound_projects="${var.gcp_project_id}" >>/opt/vault/setup.log
-    /usr/bin/vault enable gcp >>/opt/vault/setup.log
-    /usr/bin/vault vault write gcp/config credentials=${var.gcp_iam_vault_service_account} >>/opt/vault/setup.log
+    /usr/bin/vault login $ROOT_TOKEN >> /opt/vault/setup.log 2>&1
+    /usr/bin/vault secrets enable -path=sercets kv2 >> /opt/vault/setup.log 2>&1
+    /usr/bin/vault auth enable gcp >>/opt/vault/setup.log 2>&1
+    /usr/bin/vault write auth/gcp/role/my-iam-role type="iam"  policies="dev,prod"  bound_service_accounts="${var.bound_service_account}" >>/opt/vault/setup.log 2>&1
+    /usr/bin/vault write auth/gcp/role/my-gce-role type="gce"  policies="dev,prod" bound_projects="${var.gcp_project_id}" >>/opt/vault/setup.log 2>&1
+    /usr/bin/vault enable gcp >>/opt/vault/setup.log 2>&1
+    /usr/bin/vault vault write gcp/config credentials=${var.gcp_iam_vault_service_account} >>/opt/vault/setup.log 2>&1
     vault write gcp/roleset/my-token-roleset \
     project="my-project" \
     secret_type="access_token"  \
