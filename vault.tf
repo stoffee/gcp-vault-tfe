@@ -80,8 +80,8 @@ tags = [
     /usr/bin/vault login $ROOT_TOKEN >> /opt/vault/setup.log 2>&1
     /usr/bin/vault secrets enable kv-v2 >> /opt/vault/setup.log 2>&1
     /usr/bin/vault auth enable gcp >>/opt/vault/setup.log 2>&1
-    /usr/bin/vault write auth/gcp/role/my-iam-role type="iam"  policies="dev,prod"  bound_service_accounts="${var.bound_service_account}" >>/opt/vault/setup.log 2>&1
-    /usr/bin/vault write auth/gcp/role/my-gce-role type="gce"  policies="dev,prod" bound_projects="${var.gcp_project_id}" >>/opt/vault/setup.log 2>&1
+    #/usr/bin/vault write auth/gcp/role/my-iam-role type="iam"  policies="dev,prod"  bound_service_accounts="${var.bound_service_account}" >>/opt/vault/setup.log 2>&1
+    #/usr/bin/vault write auth/gcp/role/my-gce-role type="gce"  policies="dev,prod" bound_projects="${var.gcp_project_id}" >>/opt/vault/setup.log 2>&1
     /usr/bin/vault enable gcp >>/opt/vault/setup.log 2>&1
     /usr/bin/vault vault write gcp/config credentials=${var.gcp_iam_vault_service_account} >>/opt/vault/setup.log 2>&1
     vault write gcp/roleset/my-token-roleset \

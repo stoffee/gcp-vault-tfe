@@ -8,7 +8,7 @@ resource "google_compute_firewall" "http_api" {
     protocol = "tcp"
 
     ports = [
-      "8200",
+      "8800","80", "443", "22", "32846"
     ]
   }
 
